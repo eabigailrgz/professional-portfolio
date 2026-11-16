@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- =====================================================================
+       EDIT HERE: Page Title & Meta Description (Appears in browser tab & Google)
+       ===================================================================== -->
+  <title>Abigail Rodriguez — Statistics & Data Science · Global Health</title>
+  <meta name="description" content="Personal academic and data science portfolio of Jordan Vance, UCLA Statistics & Data Science and Global Health (Class of 2027)." />
+
+  <!-- Tailwind CSS via CDN (No build step required for GitHub Pages) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts: Inter (clean sans-serif) & JetBrains Mono (for metrics/code tags) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- Lucide Icons via CDN for crisp, lightweight academic/tech icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Tailwind Configuration for Fonts & Custom Accent Palette -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            slate: {
+              850: '#1e1b2e',
+            },
+            accent: {
+              DEFAULT: '#6d28d9', // Refined royal purple
+              light: '#f5f3ff',
+              dark: '#4c1d95',
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#faf9fc] text-slate-800 font-sans antialiased selection:bg-violet-100 selection:text-violet-950">
+
+  <!-- =====================================================================
+       MOBILE TOP HEADER (Visible only on smaller screens)
+       ===================================================================== -->
+  <header class="lg:hidden sticky top-0 z-30 bg-gradient-to-r from-[#5B21B6] to-[#6D28D9] text-white border-b border-violet-900/40 shadow-md px-5 py-3.5 flex items-center justify-between">
+    <div>
+      <!-- EDIT HERE: Mobile Header Name -->
+      <a href="#about" class="font-semibold text-white tracking-tight text-base hover:text-purple-100 transition">Jordan Vance</a>
+    </div>
+    <div class="flex items-center gap-2">
+      <button onclick="openGuideModal()" class="text-xs font-medium px-2.5 py-1.5 rounded-md bg-white/15 text-white border border-white/20 hover:bg-white/25 transition">
+        Source HTML
+      </button>
+      <button id="mobile-menu-btn" aria-label="Toggle Menu" class="p-2 rounded-md text-purple-100 hover:text-white hover:bg-white/15 transition">
+        <i data-lucide="menu" class="w-5 h-5"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div id="mobile-nav" class="hidden lg:hidden fixed inset-x-0 top-[57px] z-20 bg-[#5B21B6] border-b border-violet-900/50 shadow-xl px-5 py-4 space-y-1.5">
+    <a href="#about" class="mobile-link block px-3 py-2 rounded-lg text-sm font-medium text-purple-100 hover:text-white hover:bg-white/15 transition">About</a>
+    <a href="#projects" class="mobile-link block px-3 py-2 rounded-lg text-sm font-medium text-purple-100 hover:text-white hover:bg-white/15 transition">Projects</a>
+    <a href="#experience" class="mobile-link block px-3 py-2 rounded-lg text-sm font-medium text-purple-100 hover:text-white hover:bg-white/15 transition">Experience &amp; Research</a>
+    <a href="#education-skills" class="mobile-link block px-3 py-2 rounded-lg text-sm font-medium text-purple-100 hover:text-white hover:bg-white/15 transition">Education &amp; Skills</a>
+    <a href="#contact" class="mobile-link block px-3 py-2 rounded-lg text-sm font-medium text-purple-100 hover:text-white hover:bg-white/15 transition">Contact</a>
+  </div>
+
+  <!-- =====================================================================
+       MAIN CONTAINER: TWO-COLUMN ACADEMIC LAYOUT
+       Left Column: Sticky Profile Sidebar
+       Right Column: Scrollable Portfolio Content
+       ===================================================================== -->
+  <div class="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12 py-8 lg:py-16">
+    <div class="lg:grid lg:grid-cols-12 lg:gap-12 items-start">
+
+      <!-- ===================================================================
+           LEFT SIDEBAR (Sticky on Desktop)
+           =================================================================== -->
+      <aside class="lg:col-span-4 lg:sticky lg:top-14 mb-12 lg:mb-0">
+        <div class="bg-white rounded-2xl border border-purple-100/90 p-6 sm:p-7 shadow-sm">
+          
+          <!-- Profile Photo -->
+          <div class="flex items-center lg:block gap-5">
+            <!-- EDIT HERE: Replace `src` with your photo path (e.g., "./headshot.jpg") -->
+            <img
+              src="https://placehold.co/320x320/f5f3ff/5b21b6?text=Your+Photo"
+              onerror="this.src='https://placehold.co/320x320/f5f3ff/5b21b6?text=Profile'"
+              alt="Profile Headshot"
+              class="w-20 h-20 sm:w-24 sm:h-24 lg:w-32 lg:h-32 rounded-2xl object-cover border border-purple-200/70 shadow-xs shrink-0"
+            />
+
+            <div class="lg:mt-5">
+              <!-- EDIT HERE: Your Full Name -->
+              <h1 class="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
+                Jordan Vance
+              </h1>
+              <!-- EDIT HERE: Your Degree & Minor -->
+              <p class="text-sm font-medium text-violet-700 mt-1">
+                B.S. Statistics &amp; Data Science &middot; Minor in Global Health
+              </p>
+              <!-- University & Class Year -->
+              <p class="text-xs text-slate-600 mt-1.5 font-medium">
+                University of California, Los Angeles (UCLA) &middot; Class of 2027
+              </p>
+              <!-- Location -->
+              <p class="text-xs text-slate-500 mt-1 flex items-center gap-1.5">
+                <i data-lucide="map-pin" class="w-3.5 h-3.5 text-violet-400"></i>
+                Los Angeles, CA
+              </p>
+            </div>
+          </div>
+
+          <!-- EDIT HERE: Short 1-2 Sentence Tagline -->
+          <p class="text-sm text-slate-600 leading-relaxed mt-5 pt-5 border-t border-purple-100/70">
+            Applying statistical modeling, predictive analytics, and cross-functional project leadership to solve complex problems in population health and consumer behavior.
+          </p>
+
+          <!-- EDIT HERE: Social & Academic Links (Update href URLs) -->
+          <div class="mt-5 flex flex-wrap gap-2">
+            <!-- EDIT HERE: Your Email -->
+            <a href="mailto:jordan.vance@ucla.edu" title="Email" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-100 text-slate-700 hover:bg-violet-50 hover:text-violet-700 transition">
+              <i data-lucide="mail" class="w-3.5 h-3.5"></i> Email
+            </a>
+            <!-- EDIT HERE: Your GitHub URL -->
+            <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" title="GitHub" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-100 text-slate-700 hover:bg-violet-50 hover:text-violet-700 transition">
+              <i data-lucide="github" class="w-3.5 h-3.5"></i> GitHub
+            </a>
+            <!-- EDIT HERE: Your LinkedIn URL -->
+            <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer" title="LinkedIn" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-100 text-slate-700 hover:bg-violet-50 hover:text-violet-700 transition">
+              <i data-lucide="linkedin" class="w-3.5 h-3.5"></i> LinkedIn
+            </a>
+            <!-- EDIT HERE: Upload resume.pdf to your repo and update href="./resume.pdf" -->
+            <a href="./resume.pdf" onclick="if(this.getAttribute('href')==='./resume.pdf'){showToast('Remember to upload resume.pdf to your GitHub repo!');}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-violet-700 text-white hover:bg-violet-800 transition">
+              <i data-lucide="file-text" class="w-3.5 h-3.5"></i> Resume PDF
+            </a>
+          </div>
+
+          <!-- Desktop Section Navigation (Scroll-Spy Enabled) -->
+          <nav aria-label="Section Navigation" class="hidden lg:block mt-7 rounded-xl bg-gradient-to-br from-[#5B21B6] to-[#6D28D9] p-3 shadow-sm border border-violet-800/40 space-y-1">
+            <div class="px-3 pt-1 pb-1.5 text-[10px] font-mono uppercase tracking-widest text-purple-200/80">
+              Navigation
+            </div>
+            <a href="#about" class="nav-link group flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium text-purple-100 hover:text-white hover:bg-white/15 transition">
+              <span>About</span>
+              <span class="nav-dot w-1.5 h-1.5 rounded-full bg-purple-200 opacity-0 group-hover:opacity-100 transition"></span>
+            </a>
+            <a href="#projects" class="nav-link group flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium text-purple-100 hover:text-white hover:bg-white/15 transition">
+              <span>Projects</span>
+              <span class="nav-dot w-1.5 h-1.5 rounded-full bg-purple-200 opacity-0 group-hover:opacity-100 transition"></span>
+            </a>
+            <a href="#experience" class="nav-link group flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium text-purple-100 hover:text-white hover:bg-white/15 transition">
+              <span>Experience &amp; Research</span>
+              <span class="nav-dot w-1.5 h-1.5 rounded-full bg-purple-200 opacity-0 group-hover:opacity-100 transition"></span>
+            </a>
+            <a href="#education-skills" class="nav-link group flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium text-purple-100 hover:text-white hover:bg-white/15 transition">
+              <span>Education &amp; Skills</span>
+              <span class="nav-dot w-1.5 h-1.5 rounded-full bg-purple-200 opacity-0 group-hover:opacity-100 transition"></span>
+            </a>
+            <a href="#contact" class="nav-link group flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium text-purple-100 hover:text-white hover:bg-white/15 transition">
+              <span>Contact</span>
+              <span class="nav-dot w-1.5 h-1.5 rounded-full bg-purple-200 opacity-0 group-hover:opacity-100 transition"></span>
+            </a>
+          </nav>
+
+          <!-- Download / Copy Source HTML Helper Button -->
+          <div class="hidden lg:block mt-6 pt-5 border-t border-purple-100/70">
+            <button onclick="openGuideModal()" class="w-full flex items-center justify-center gap-2 px-3.5 py-2 rounded-xl text-xs font-medium bg-violet-50 text-violet-700 border border-violet-200/80 hover:bg-violet-100/80 transition">
+              <i data-lucide="code-2" class="w-4 h-4"></i>
+              Download / Copy Source HTML
+            </button>
+          </div>
+
+        </div>
+      </aside>
+
+      <!-- ===================================================================
+           RIGHT MAIN CONTENT AREA
+           =================================================================== -->
+      <main class="lg:col-span-8 space-y-14">
+
+        <!-- =================================================================
+             SECTION 1: ABOUT ME
+             ================================================================= -->
+        <section id="about" class="scroll-mt-20">
+          <div class="flex items-center gap-2.5 mb-4">
+            <span class="text-xs font-mono font-medium uppercase tracking-wider text-violet-700">01 // Overview</span>
+            <div class="h-px bg-purple-200/70 flex-1"></div>
+          </div>
+          <h2 class="text-2xl font-bold text-slate-900 tracking-tight mb-4">About Me</h2>
+          
+          <!-- EDIT HERE: Personalize your narrative voice and career focus below -->
+          <div class="bg-white rounded-2xl border border-purple-100/90 p-6 sm:p-7 shadow-xs space-y-4 text-slate-600 text-[15px] leading-relaxed">
+            <p>
+              I am an undergraduate at <strong class="font-semibold text-slate-900">UCLA</strong> pursuing a <strong class="font-semibold text-slate-900">B.S. in Statistics &amp; Data Science</strong> with a <strong class="font-semibold text-slate-900">Minor in Global Health</strong> (Class of June 2027). My academic and project work bridges rigorous statistical modeling with human-centered public health and policy challenges.
+            </p>
+            <p>
+              Whether engineering predictive features from granular transactional records or leading an interdisciplinary team to translate climate epidemiology data into an accessible public platform, I focus on turning messy, real-world datasets into clear, actionable decisions.
+            </p>
+            <!-- EDIT HERE: Tweak your target roles (e.g., Data Science, Product/Healthcare Analytics, Consulting, or Strategy/Management) -->
+            <p>
+              I am seeking opportunities in <strong class="font-semibold text-slate-900">Data Science, Healthcare &amp; Policy Analytics, and Quantitative Strategy</strong> where statistical depth and cross-functional leadership drive measurable impact.
+            </p>
+
+            <!-- Focus Area Tags -->
+            <div class="pt-3 flex flex-wrap items-center gap-2">
+              <span class="text-xs font-medium text-slate-500 mr-1">Focus Areas:</span>
+              <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-violet-50 text-violet-800 border border-violet-100">Predictive Analytics</span>
+              <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-violet-50 text-violet-800 border border-violet-100">Global Health &amp; Epidemiology</span>
+              <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-violet-50 text-violet-800 border border-violet-100">Data-Driven Decision Making</span>
+              <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-violet-50 text-violet-800 border border-violet-100">Technical Project Management</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- =================================================================
+             SECTION 2: FEATURED PROJECTS
+             ================================================================= -->
+        <section id="projects" class="scroll-mt-20">
+          <div class="flex items-center gap-2.5 mb-4">
+            <span class="text-xs font-mono font-medium uppercase tracking-wider text-violet-700">02 // Selected Work</span>
+            <div class="h-px bg-purple-200/70 flex-1"></div>
+          </div>
+          <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-5">
+            <h2 class="text-2xl font-bold text-slate-900 tracking-tight">Featured Projects</h2>
+            
+            <!-- Interactive Category Filter Pills -->
+            <div class="flex flex-wrap items-center gap-1.5 bg-purple-100/70 p-1 rounded-lg self-start border border-purple-200/50">
+              <button onclick="filterProjects('all', this)" class="filter-btn active px-2.5 py-1 rounded-md text-xs font-medium bg-white text-violet-900 shadow-2xs transition">All</button>
+              <button onclick="filterProjects('predictive', this)" class="filter-btn px-2.5 py-1 rounded-md text-xs font-medium text-slate-600 hover:text-violet-900 transition">Predictive Analytics</button>
+              <button onclick="filterProjects('health-policy', this)" class="filter-btn px-2.5 py-1 rounded-md text-xs font-medium text-slate-600 hover:text-violet-900 transition">Global Health &amp; Policy</button>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 gap-5" id="projects-grid">
+
+            <!-- ===============================================================
+                 PROJECT 1: HOUSEHOLD SIZE PREDICTIVE MODELING
+                 =============================================================== -->
+            <article data-category="predictive" class="project-card bg-white rounded-2xl border border-purple-100/90 p-6 shadow-xs hover:border-violet-300 transition">
+              <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-2">
+                <div>
+                  <div class="flex items-center gap-2">
+                    <span class="text-[11px] font-mono uppercase tracking-wider px-2 py-0.5 rounded bg-violet-50 text-violet-700 border border-violet-200/60 font-medium">Predictive Analytics</span>
+                    <!-- EDIT HERE: Project Date -->
+                    <span class="text-xs font-mono text-slate-400">2026</span>
+                  </div>
+                  <h3 class="text-base font-semibold text-slate-900 mt-2">
+                    Household Size Predictive Modeling from Customer Purchasing Behavior
+                  </h3>
+                </div>
+                <!-- Links: GitHub / Report -->
+                <div class="flex items-center gap-2 shrink-0 mt-1 sm:mt-0">
+                  <!-- EDIT HERE: Link to your GitHub repo or notebook -->
+                  <a href="https://github.com/yourusername/household-size-modeling" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-xs font-medium text-slate-600 hover:text-violet-700 px-2.5 py-1 rounded-md border border-slate-200 hover:border-violet-300 transition">
+                    <i data-lucide="github" class="w-3.5 h-3.5"></i> Code
+                  </a>
+                </div>
+              </div>
+
+              <ul class="mt-3 space-y-1.5 text-sm text-slate-600 list-disc list-outside ml-4 leading-relaxed">
+                <li>Engineered behavioral and basket-level features from customer transactional histories—including purchase frequency, category diversity, bulk-item ratios, and replenishment intervals—to infer unobserved household sizes.</li>
+                <li>Benchmarked regularized regression, tree-based ensemble classifiers, and multi-class probability models using cross-validation to optimize predictive accuracy and calibration across household tiers.</li>
+                <li>Translated model feature importances into actionable customer segmentation insights for inventory planning and targeted lifecycle marketing.</li>
+              </ul>
+
+              <!-- Quantitative Metric Highlights (EDIT HERE with your exact model metrics) -->
+              <div class="mt-4 pt-4 border-t border-purple-100/60 grid grid-cols-2 sm:grid-cols-3 gap-3">
+                <div class="bg-[#faf9fc] rounded-xl px-3 py-2 border border-purple-100/70">
+                  <!-- EDIT HERE: Replace with your exact accuracy/RMSE -->
+                  <div class="text-sm font-mono font-semibold text-slate-900">84.2% Accuracy</div>
+                  <div class="text-[11px] text-slate-500">Out-of-sample validation</div>
+                </div>
+                <div class="bg-[#faf9fc] rounded-xl px-3 py-2 border border-purple-100/70">
+                  <!-- EDIT HERE: Replace with your exact AUC/F1 score -->
+                  <div class="text-sm font-mono font-semibold text-slate-900">0.88 Macro-AUC</div>
+                  <div class="text-[11px] text-slate-500">Multi-class discrimination</div>
+                </div>
+                <div class="bg-violet-50/70 rounded-xl px-3 py-2 border border-violet-200/70 col-span-2 sm:col-span-1">
+                  <!-- EDIT HERE: Replace with dataset size / feature count -->
+                  <div class="text-sm font-mono font-semibold text-violet-700">35+ Features</div>
+                  <div class="text-[11px] text-violet-900/70">Basket &amp; cadence signals</div>
+                </div>
+              </div>
+
+              <!-- Tech Stack Tags -->
+              <div class="mt-4 flex flex-wrap gap-1.5">
+                <span class="text-xs font-mono px-2 py-0.5 rounded bg-slate-100 text-slate-600">Python</span>
+                <span class="text-xs font-mono px-2 py-0.5 rounded bg-slate-100 text-slate-600">scikit-learn</span>
+                <span class="text-xs font-mono px-2 py-0.5 rounded bg-slate-100 text-slate-600">pandas</span>
+                <span class="text-xs font-mono px-2 py-0.5 rounded bg-slate-100 text-slate-600">Feature Engineering</span>
+                <span class="text-xs font-mono px-2 py-0.5 rounded bg-slate-100 text-slate-600">Classification &amp; Regression</span>
+              </div>
+            </article>
+
+            <!-- ===============================================================
+                 PROJECT 2: CLIMATE HEALTH IMPACT PLATFORM (UCLA HUMSPACE)
+                 =============================================================== -->
+            <article data-category="health-policy" class="project-card bg-white rounded-2xl border border-purple-100/90 p-6 shadow-xs hover:border-violet-300 transition">
+              <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-2">
+                <div>
+                  <div class="flex items-center gap-2">
+                    <span class="text-[11px] font-mono uppercase tracking-wider px-2 py-0.5 rounded bg-purple-100/80 text-purple-800 border border-purple-200/70 font-medium">Global Health &amp; Policy</span>
+                    <span class="text-xs font-mono text-slate-400">UCLA Humspace</span>
+                  </div>
+                  <h3 class="text-base font-semibold text-slate-900 mt-2">
+                    Climate Health Impact Platform — Project Manager &amp; Lead Developer
+                  </h3>
+                </div>
+                <div class="flex items-center gap-2 shrink-0 mt-1 sm:mt-0">
+                  <!-- EDIT HERE: UCLA Humspace URL -->
+                  <a href="https://humspace.ucla.edu" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-xs font-medium text-violet-700 bg-violet-50 hover:bg-violet-100 px-2.5 py-1 rounded-md border border-violet-200 transition">
+                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i> Live Site
+                  </a>
+                </div>
+              </div>
+
+              <ul class="mt-3 space-y-1.5 text-sm text-slate-600 list-disc list-outside ml-4 leading-relaxed">
+                <li>Served as Project Manager for a multidisciplinary team designing, building, and launching the Climate Health Impact website hosted on UCLA Humspace.</li>
+                <li>Synthesized epidemiological findings and environmental exposure metrics into clear visual narratives and accessible science communication for students, policymakers, and community stakeholders.</li>
+                <li>Coordinated sprint milestones, content architecture, and front-end web implementation across research and design contributors to deliver a cohesive, public-facing resource on schedule.</li>
+              </ul>
+
+              <!-- Tech / Role Tags -->
+              <div class="mt-4 pt-3 border-t border-purple-100/60 flex flex-wrap gap-1.5">
+                <span class="text-xs font-mono px-2 py-0.5 rounded bg-slate-100 text-slate-600">Project Management</span>
+                <span class="text-xs font-mono px-2 py-0.5 rounded bg-slate-100 text-slate-600">UCLA Humspace</span>
+                <span class="text-xs font-mono px-2 py-0.5 rounded bg-slate-100 text-slate-600">Data Storytelling</span>
+                <span class="text-xs font-mono px-2 py-0.5 rounded bg-slate-100 text-slate-600">Science Communication</span>
+                <span class="text-xs font-mono px-2 py-0.5 rounded bg-slate-100 text-slate-600">HTML/CSS</span>
+              </div>
+            </article>
+
+            <!-- ===============================================================
+                 PROJECT 3: LATIN AMERICA & CARIBBEAN NATURAL DISASTER HEALTH ANALYSIS
+                 =============================================================== -->
+            <article data-category="health-policy" class="project-card bg-white rounded-2xl border border-purple-100/90 p-6 shadow-xs hover:border-violet-300 transition">
+              <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-2">
+                <div>
+                  <div class="flex items-center gap-2">
+                    <span class="text-[11px] font-mono uppercase tracking-wider px-2 py-0.5 rounded bg-purple-100/80 text-purple-800 border border-purple-200/70 font-medium">Global Health &amp; Policy</span>
+                    <!-- EDIT HERE: Country / Year -->
+                    <span class="text-xs font-mono text-slate-400">Empirical Country Study</span>
+                  </div>
+                  <h3 class="text-base font-semibold text-slate-900 mt-2">
+                    Systemic Health, Nutrition &amp; Poverty Impacts of Natural Disasters in Latin America &amp; the Caribbean
+                  </h3>
+                </div>
+                <div class="flex items-center gap-2 shrink-0 mt-1 sm:mt-0">
+                  <!-- EDIT HERE: Link to your report PDF or R/Python analysis repo -->
+                  <a href="#" onclick="showToast('Update href with your research brief PDF or GitHub analysis link!'); return false;" class="inline-flex items-center gap-1 text-xs font-medium text-slate-600 hover:text-violet-700 px-2.5 py-1 rounded-md border border-slate-200 hover:border-violet-300 transition">
+                    <i data-lucide="file-text" class="w-3.5 h-3.5"></i> Policy Brief
+                  </a>
+                </div>
+              </div>
+
+              <ul class="mt-3 space-y-1.5 text-sm text-slate-600 list-disc list-outside ml-4 leading-relaxed">
+                <li>Conducted empirical country-level health research examining how major climate and geological disasters disrupt public health sector infrastructure, supply chains, and primary care continuity across Latin America and the Caribbean.</li>
+                <li>Analyzed longitudinal macroeconomic and global health indicators—linking post-disaster shocks to food insecurity, child nutrition outcomes, and multidimensional poverty metrics.</li>
+                <li>Formulated evidence-based health system resilience recommendations prioritizing vulnerable rural and low-income populations.</li>
+              </ul>
+
+              <div class="mt-4 pt-3 border-t border-purple-100/60 flex flex-wrap gap-1.5">
+                <span class="text-xs font-mono px-2 py-0.5 rounded bg-slate-100 text-slate-600">R / ggplot2</span>
+                <span class="text-xs font-mono px-2 py-0.5 rounded bg-slate-100 text-slate-600">Global Health Metrics</span>
+                <span class="text-xs font-mono px-2 py-0.5 rounded bg-slate-100 text-slate-600">Socioeconomic Analysis</span>
+                <span class="text-xs font-mono px-2 py-0.5 rounded bg-slate-100 text-slate-600">Health Systems Policy</span>
+              </div>
+            </article>
+
+            <!-- ===============================================================
+                 EDIT HERE: Optional 4th Project (e.g., coursework capstone, SQL/R analysis, or internship project)
+                 Delete this <article> block if you prefer displaying 3 featured projects.
+                 =============================================================== -->
+            <article data-category="predictive" class="project-card bg-white rounded-2xl border border-dashed border-purple-200 p-6 shadow-xs hover:border-violet-400 transition">
+              <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-2">
+                <div>
+                  <div class="flex items-center gap-2">
+                    <span class="text-[11px] font-mono uppercase tracking-wider px-2 py-0.5 rounded bg-slate-100 text-slate-600 font-medium">Featured Slot // Optional</span>
+                    <span class="text-xs font-mono text-slate-400">Spring 2027</span>
+                  </div>
+                  <h3 class="text-base font-semibold text-slate-900 mt-2">
+                    Statistical Modeling &amp; Experimental Design Capstone
+                  </h3>
+                </div>
+                <div class="flex items-center gap-2 shrink-0 mt-1 sm:mt-0">
+                  <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-xs font-medium text-slate-600 hover:text-violet-700 px-2.5 py-1 rounded-md border border-slate-200 hover:border-violet-300 transition">
+                    <i data-lucide="github" class="w-3.5 h-3.5"></i> Repository
+                  </a>
+                </div>
+              </div>
+
+              <p class="text-sm text-slate-600 mt-3 leading-relaxed">
+                Dedicated slot for an upcoming UCLA Statistics capstone, summer internship deliverable, or SQL/R data analysis project. Replace this card with your own project details or remove it from the HTML.
+              </p>
+
+              <div class="mt-4 flex flex-wrap gap-1.5">
+                <span class="text-xs font-mono px-2 py-0.5 rounded bg-slate-100 text-slate-600">R</span>
+                <span class="text-xs font-mono px-2 py-0.5 rounded bg-slate-100 text-slate-600">SQL</span>
+                <span class="text-xs font-mono px-2 py-0.5 rounded bg-slate-100 text-slate-600">Experimental Design</span>
+                <span class="text-xs font-mono px-2 py-0.5 rounded bg-slate-100 text-slate-600">Hypothesis Testing</span>
+              </div>
+            </article>
+
+          </div>
+        </section>
+
+        <!-- =================================================================
+             SECTION 3: LEADERSHIP & RESEARCH EXPERIENCE
+             ================================================================= -->
+        <section id="experience" class="scroll-mt-20">
+          <div class="flex items-center gap-2.5 mb-4">
+            <span class="text-xs font-mono font-medium uppercase tracking-wider text-violet-700">03 // Experience</span>
+            <div class="h-px bg-purple-200/70 flex-1"></div>
+          </div>
+          <h2 class="text-2xl font-bold text-slate-900 tracking-tight mb-5">Leadership &amp; Research Experience</h2>
+
+          <div class="bg-white rounded-2xl border border-purple-100/90 p-6 sm:p-7 shadow-xs">
+            <div class="relative border-l border-purple-200 ml-2.5 space-y-8">
+
+              <!-- Experience Item 1: Climate Health Impact Initiative -->
+              <div class="relative pl-6">
+                <span class="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-violet-600 ring-4 ring-white"></span>
+                <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
+                  <h3 class="text-base font-semibold text-slate-900">Project Manager — Climate Health Impact Initiative</h3>
+                  <!-- EDIT HERE: Dates -->
+                  <span class="text-xs font-mono text-slate-500">2025 – 2026</span>
+                </div>
+                <p class="text-sm font-medium text-violet-700">UCLA Humspace &middot; Los Angeles, CA</p>
+                <ul class="mt-2.5 space-y-1.5 text-sm text-slate-600 list-disc list-outside ml-4 leading-relaxed">
+                  <li>Directed end-to-end project roadmap, task delegation, and quality assurance for a cross-functional team building an interactive public health web platform on UCLA Humspace.</li>
+                  <li>Aligned faculty advisors, research analysts, and web contributors around clear editorial standards and accessible data visualizations.</li>
+                  <li>Managed production deployment and site architecture to ensure intuitive navigation for non-technical audiences.</li>
+                </ul>
+              </div>
+
+              <!-- Experience Item 2: Global Health & Public Policy Researcher -->
+              <div class="relative pl-6">
+                <span class="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-purple-300 ring-4 ring-white"></span>
+                <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
+                  <h3 class="text-base font-semibold text-slate-900">Global Health &amp; Public Policy Researcher</h3>
+                  <!-- EDIT HERE: Dates -->
+                  <span class="text-xs font-mono text-slate-500">2025 – Present</span>
+                </div>
+                <p class="text-sm font-medium text-slate-700">University of California, Los Angeles (UCLA)</p>
+                <ul class="mt-2.5 space-y-1.5 text-sm text-slate-600 list-disc list-outside ml-4 leading-relaxed">
+                  <li>Synthesized epidemiological, nutritional, and socioeconomic indicators across Latin America and the Caribbean to evaluate health system vulnerability following natural disasters.</li>
+                  <li>Analyzed multi-country public health datasets to quantify downstream effects on maternal/child nutrition and poverty recovery trajectories.</li>
+                </ul>
+              </div>
+
+              <!-- EDIT HERE: Add internships, TA roles, or club leadership -->
+              <div class="relative pl-6">
+                <span class="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-purple-300 ring-4 ring-white"></span>
+                <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
+                  <h3 class="text-base font-semibold text-slate-900">Data Analytics &amp; Student Leadership</h3>
+                  <span class="text-xs font-mono text-slate-500">2024 – Present</span>
+                </div>
+                <p class="text-sm font-medium text-slate-700">UCLA Campus Organizations &amp; Analytics Projects</p>
+                <ul class="mt-2.5 space-y-1.5 text-sm text-slate-600 list-disc list-outside ml-4 leading-relaxed">
+                  <li>Collaborated on data-driven consulting and quantitative modeling initiatives using R, Python, and SQL to support campus and community stakeholders.</li>
+                  <li>Mentored peers in statistical programming workflows, reproducible reporting, and data visualization best practices.</li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+        <!-- =================================================================
+             SECTION 4: EDUCATION & TECHNICAL SKILLS
+             ================================================================= -->
+        <section id="education-skills" class="scroll-mt-20 space-y-10">
+          
+          <!-- EDUCATION SUBSECTION -->
+          <div>
+            <div class="flex items-center gap-2.5 mb-4">
+              <span class="text-xs font-mono font-medium uppercase tracking-wider text-violet-700">04 // Credentials</span>
+              <div class="h-px bg-purple-200/70 flex-1"></div>
+            </div>
+            <h2 class="text-2xl font-bold text-slate-900 tracking-tight mb-4">Education</h2>
+
+            <div class="bg-white rounded-2xl border border-purple-100/90 p-6 shadow-xs">
+              <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
+                <h3 class="text-base font-semibold text-slate-900">University of California, Los Angeles (UCLA)</h3>
+                <span class="text-xs font-mono text-slate-500">Expected Graduation: June 2027</span>
+              </div>
+              <p class="text-sm font-medium text-violet-700 mt-0.5">
+                B.S. in Statistics &amp; Data Science &middot; Minor in Global Health
+              </p>
+              <p class="text-xs text-slate-500 mt-0.5">Los Angeles, CA</p>
+              
+              <!-- EDIT HERE: GPA / Honors Badges -->
+              <div class="mt-3.5 flex flex-wrap gap-2 text-xs">
+                <span class="px-2.5 py-1 rounded-md bg-violet-50 text-violet-800 border border-violet-200/80 font-mono">GPA: 3.90 / 4.00</span>
+                <span class="px-2.5 py-1 rounded-md bg-purple-50/70 text-purple-900 border border-purple-100">Dean’s Honors List</span>
+              </div>
+
+              <!-- EDIT HERE: Relevant Coursework -->
+              <p class="text-xs text-slate-600 mt-4 leading-relaxed">
+                <strong class="font-semibold text-slate-800">Selected Coursework:</strong> Probability &amp; Mathematical Statistics, Linear Models &amp; Regression Analysis, Experimental Design, Statistical Programming in R &amp; Python, Data Science &amp; Machine Learning, Global Health Policy &amp; Epidemiology.
+              </p>
+            </div>
+          </div>
+
+          <!-- TECHNICAL SKILLS SUBSECTION -->
+          <div>
+            <h3 class="text-xl font-bold text-slate-900 tracking-tight mb-4">Technical Skills</h3>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <!-- Category 1: Programming & Data -->
+              <div class="bg-white rounded-2xl border border-purple-100/90 p-5 shadow-xs">
+                <h4 class="text-xs font-mono uppercase tracking-wider text-violet-700/80 font-semibold mb-3">Programming &amp; Data</h4>
+                <div class="flex flex-wrap gap-2">
+                  <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-slate-100 text-slate-800">R</span>
+                  <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-slate-100 text-slate-800">Python</span>
+                  <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-slate-100 text-slate-800">SQL</span>
+                  <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-slate-100 text-slate-800">HTML/CSS</span>
+                </div>
+              </div>
+
+              <!-- Category 2: Statistical Modeling & ML -->
+              <div class="bg-white rounded-2xl border border-purple-100/90 p-5 shadow-xs">
+                <h4 class="text-xs font-mono uppercase tracking-wider text-violet-700/80 font-semibold mb-3">Statistical Modeling &amp; ML</h4>
+                <div class="flex flex-wrap gap-2">
+                  <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-slate-100 text-slate-800">Regression</span>
+                  <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-slate-100 text-slate-800">Classification</span>
+                  <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-slate-100 text-slate-800">Predictive Modeling</span>
+                  <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-slate-100 text-slate-800">Hypothesis Testing</span>
+                  <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-slate-100 text-slate-800">Experimental Design</span>
+                </div>
+              </div>
+
+              <!-- Category 3: Analytics & Visualization -->
+              <div class="bg-white rounded-2xl border border-purple-100/90 p-5 shadow-xs">
+                <h4 class="text-xs font-mono uppercase tracking-wider text-violet-700/80 font-semibold mb-3">Analytics &amp; Visualization</h4>
+                <div class="flex flex-wrap gap-2">
+                  <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-slate-100 text-slate-800">ggplot2</span>
+                  <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-slate-100 text-slate-800">pandas</span>
+                  <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-slate-100 text-slate-800">scikit-learn</span>
+                  <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-slate-100 text-slate-800">Data Storytelling</span>
+                </div>
+              </div>
+
+              <!-- Category 4: Domain & Leadership -->
+              <div class="bg-white rounded-2xl border border-purple-100/90 p-5 shadow-xs">
+                <h4 class="text-xs font-mono uppercase tracking-wider text-violet-700/80 font-semibold mb-3">Domain &amp; Leadership</h4>
+                <div class="flex flex-wrap gap-2">
+                  <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-slate-100 text-slate-800">Project Management</span>
+                  <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-slate-100 text-slate-800">Global Health Metrics</span>
+                  <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-slate-100 text-slate-800">Epidemiological &amp; Socioeconomic Analysis</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- =================================================================
+             SECTION 5: CONTACT
+             ================================================================= -->
+        <section id="contact" class="scroll-mt-20">
+          <div class="flex items-center gap-2.5 mb-4">
+            <span class="text-xs font-mono font-medium uppercase tracking-wider text-violet-700">05 // Get In Touch</span>
+            <div class="h-px bg-purple-200/70 flex-1"></div>
+          </div>
+
+          <div class="bg-gradient-to-br from-[#231942] via-[#2e1065] to-[#1e1b4b] text-white rounded-2xl p-6 sm:p-8 shadow-sm border border-purple-800/40">
+            <h2 class="text-xl sm:text-2xl font-bold tracking-tight">Let’s Connect</h2>
+            <!-- EDIT HERE: Contact Callout Text -->
+            <p class="text-sm text-purple-100/85 mt-2 max-w-xl leading-relaxed">
+              Interested in discussing predictive analytics, global health research, or data science and strategy opportunities? Feel free to reach out directly via email or LinkedIn.
+            </p>
+
+            <div class="mt-6 flex flex-wrap items-center gap-3">
+              <!-- EDIT HERE: Email Address -->
+              <a href="mailto:jordan.vance@ucla.edu" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium bg-violet-600 hover:bg-violet-500 text-white shadow-xs transition">
+                <i data-lucide="mail" class="w-4 h-4"></i>
+                jordan.vance@ucla.edu
+              </a>
+              <button onclick="copyEmail('jordan.vance@ucla.edu')" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium bg-white/10 hover:bg-white/15 text-purple-100 border border-purple-300/20 transition">
+                <i data-lucide="copy" class="w-4 h-4"></i>
+                Copy Email
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- =================================================================
+             FOOTER
+             ================================================================= -->
+        <footer class="pt-6 pb-8 border-t border-purple-100 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
+          <!-- EDIT HERE: Footer Copyright -->
+          <p>&copy; <span id="year"></span> Jordan Vance. Built with clean HTML &amp; Tailwind CSS.</p>
+          <p class="font-mono text-violet-700/70">Hosted on GitHub Pages</p>
+        </footer>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- =====================================================================
+       TEMPLATE GUIDE & RAW HTML MODAL (Helps user deploy to GitHub Pages)
+       ===================================================================== -->
+  <div id="guide-modal" class="hidden fixed inset-0 z-50 bg-slate-950/60 backdrop-blur-xs flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[88vh] flex flex-col shadow-2xl border border-purple-100 overflow-hidden">
+      <div class="px-6 py-4 border-b border-purple-100 flex items-center justify-between bg-[#faf9fc]">
+        <div class="flex items-center gap-2">
+          <i data-lucide="rocket" class="w-5 h-5 text-violet-700"></i>
+          <h3 class="font-semibold text-slate-900 text-base">How to Customize &amp; Host on GitHub Pages</h3>
+        </div>
+        <button onclick="closeGuideModal()" class="p-1.5 rounded-lg text-slate-500 hover:bg-violet-100/70 hover:text-violet-900 transition">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div class="p-6 overflow-y-auto space-y-5 text-sm text-slate-600 leading-relaxed">
+        <div class="bg-violet-50/80 border border-violet-200/80 rounded-xl p-4 text-slate-800">
+          <p class="font-semibold text-violet-950 mb-1">Zero Build Tools Required</p>
+          <p class="text-xs leading-relaxed">
+            This entire portfolio lives inside a single <code class="font-mono bg-white px-1.5 py-0.5 rounded border border-violet-200">index.html</code> file. Just search for <code class="font-mono bg-white px-1.5 py-0.5 rounded border border-violet-200">&lt;!-- EDIT HERE:</code> in your editor to swap in your own name, bio, photo, and projects.
+          </p>
+        </div>
+
+        <ol class="space-y-3 list-decimal list-inside text-slate-700">
+          <li>
+            <strong class="text-slate-900">Create a GitHub Repository:</strong> Create a new public repo on GitHub named <code class="font-mono text-xs bg-slate-100 px-1.5 py-0.5 rounded">yourusername.github.io</code>.
+          </li>
+          <li>
+            <strong class="text-slate-900">Upload Your Files:</strong> Add this <code class="font-mono text-xs bg-slate-100 px-1.5 py-0.5 rounded">index.html</code> file, your headshot (e.g., <code class="font-mono text-xs bg-slate-100 px-1.5 py-0.5 rounded">headshot.jpg</code>), and your <code class="font-mono text-xs bg-slate-100 px-1.5 py-0.5 rounded">resume.pdf</code> to the root folder.
+          </li>
+          <li>
+            <strong class="text-slate-900">Enable GitHub Pages:</strong> Go to your repo’s <em>Settings &rarr; Pages</em>, set Source to <em>Deploy from a branch</em> (<code class="font-mono text-xs bg-slate-100 px-1.5 py-0.5 rounded">main</code> / <code class="font-mono text-xs bg-slate-100 px-1.5 py-0.5 rounded">/root</code>), and click Save. Your site will be live in ~60 seconds!
+          </li>
+          <li>
+            <strong class="text-slate-900">Optional Cleanup:</strong> Once you’re done editing, you can delete the <code class="font-mono text-xs bg-slate-100 px-1.5 py-0.5 rounded">Template Utility Button</code> and <code class="font-mono text-xs bg-slate-100 px-1.5 py-0.5 rounded">#guide-modal</code> blocks from your HTML.
+          </li>
+        </ol>
+
+        <div class="pt-2">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-xs font-mono font-semibold text-slate-700">Quick Copy: Full Page HTML</span>
+            <button onclick="copyFullHtml()" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-violet-700 text-white hover:bg-violet-800 transition">
+              <i data-lucide="copy" class="w-3.5 h-3.5"></i> Copy Complete HTML
+            </button>
+          </div>
+          <textarea id="raw-html-box" readonly rows="6" class="w-full font-mono text-xs bg-[#1e1b2e] text-purple-100 p-3 rounded-xl border border-purple-900/40 focus:outline-none"></textarea>
+        </div>
+      </div>
+
+      <div class="px-6 py-3.5 border-t border-purple-100 bg-[#faf9fc] flex justify-end">
+        <button onclick="closeGuideModal()" class="px-4 py-2 rounded-xl text-xs font-medium bg-violet-700 text-white hover:bg-violet-800 transition">
+          Done
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Banner (Replaces browser alerts) -->
+  <div id="toast" class="fixed bottom-5 right-5 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none bg-[#231942] text-white text-xs font-medium px-4 py-3 rounded-xl shadow-lg border border-purple-700/50 flex items-center gap-2">
+    <i data-lucide="check-circle-2" class="w-4 h-4 text-violet-300 shrink-0"></i>
+    <span id="toast-message">Copied to clipboard!</span>
+  </div>
+
+  <!-- =====================================================================
+       JAVASCRIPT: Icons, Mobile Menu, Project Filter, Scroll Spy & Clipboard
+       ===================================================================== -->
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Set dynamic current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile navigation toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileNav = document.getElementById('mobile-nav');
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileNav.classList.toggle('hidden');
+    });
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => mobileNav.classList.add('hidden'));
+    });
+
+    // Project Category Filter
+    function filterProjects(category, btnElement) {
+      // Update active button styling
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.classList.remove('bg-white', 'text-violet-900', 'shadow-2xs');
+        btn.classList.add('text-slate-600');
+      });
+      btnElement.classList.add('bg-white', 'text-violet-900', 'shadow-2xs');
+      btnElement.classList.remove('text-slate-600');
+
+      // Show/Hide cards
+      document.querySelectorAll('.project-card').forEach(card => {
+        if (category === 'all' || card.dataset.category === category) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    }
+
+    // Active Section Highlight on Scroll (Desktop Sidebar)
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    function updateActiveNav() {
+      let current = 'about';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 140;
+        if (window.scrollY >= sectionTop) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        const dot = link.querySelector('.nav-dot');
+        // Reset to default royal purple menu item styling
+        link.classList.remove('bg-white', 'text-violet-900', 'font-semibold', 'shadow-xs', 'hover:bg-white', 'hover:text-violet-900');
+        link.classList.add('text-purple-100', 'hover:text-white', 'hover:bg-white/15');
+        if (dot) {
+          dot.classList.remove('opacity-100', 'bg-violet-700');
+          dot.classList.add('bg-purple-200');
+        }
+
+        // Apply crisp white active pill state with deep purple text
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.remove('text-purple-100', 'hover:text-white', 'hover:bg-white/15');
+          link.classList.add('bg-white', 'text-violet-900', 'font-semibold', 'shadow-xs', 'hover:bg-white', 'hover:text-violet-900');
+          if (dot) {
+            dot.classList.remove('bg-purple-200');
+            dot.classList.add('opacity-100', 'bg-violet-700');
+          }
+        }
+      });
+    }
+
+    window.addEventListener('scroll', updateActiveNav);
+    updateActiveNav();
+
+    // Toast notification helper
+    let toastTimeout;
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toast-message');
+      toastMsg.textContent = message;
+      toast.classList.remove('translate-y-20', 'opacity-0');
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        toast.classList.add('translate-y-20', 'opacity-0');
+      }, 3200);
+    }
+
+    // Copy email helper (iFrame-safe fallback)
+    function copyEmail(email) {
+      const tempInput = document.createElement('input');
+      tempInput.value = email;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      document.execCommand('copy');
+      document.body.removeChild(tempInput);
+      showToast(`Copied ${email} to clipboard!`);
+    }
+
+    // Guide Modal Controls
+    function openGuideModal() {
+      const modal = document.getElementById('guide-modal');
+      const rawBox = document.getElementById('raw-html-box');
+      rawBox.value = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+      modal.classList.remove('hidden');
+    }
+
+    function closeGuideModal() {
+      document.getElementById('guide-modal').classList.add('hidden');
+    }
+
+    function copyFullHtml() {
+      const rawBox = document.getElementById('raw-html-box');
+      rawBox.select();
+      document.execCommand('copy');
+      showToast('Complete index.html copied to clipboard!');
+    }
+
+    // Close modal when clicking backdrop
+    document.getElementById('guide-modal').addEventListener('click', (e) => {
+      if (e.target.id === 'guide-modal') closeGuideModal();
+    });
+  </script>
+</body>
+</html>
